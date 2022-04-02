@@ -1,8 +1,19 @@
 import React from 'react';
+import {Typography} from "@mui/material";
 
 function Create(props) {
     return (
-        <div></div>
+        <div>
+            <Typography
+                variant={'h4'}
+                color={'textSecondary'}
+                align={'center'}
+                gutterBottom
+            >
+                Add A New Note
+            </Typography>
+
+        </div>
     );
 }
 
