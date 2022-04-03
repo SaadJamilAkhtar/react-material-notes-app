@@ -1,19 +1,32 @@
 import React from 'react';
-import {Typography} from "@mui/material";
+import {Button, Typography} from "@mui/material";
+import {Container} from "@mui/material";
 
 function Create(props) {
+
+    const submit = () => {
+
+    }
+
     return (
-        <div>
+        <Container>
             <Typography
                 variant={'h4'}
                 color={'textSecondary'}
-                align={'center'}
                 gutterBottom
             >
                 Add A New Note
             </Typography>
+            <Button
+                onClick={submit}
+                type={'submit'}
+                variant={'contained'}
+                color={'secondary'}
+            >
+                Submit
+            </Button>
 
-        </div>
+        </Container>
     );
 }
 
