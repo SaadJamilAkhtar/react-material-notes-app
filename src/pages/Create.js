@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, Typography} from "@mui/material";
 import {Container} from "@mui/material";
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 function Create(props) {
 
@@ -22,8 +23,9 @@ function Create(props) {
                 type={'submit'}
                 variant={'contained'}
                 color={'secondary'}
+                startIcon={<AddCircleIcon/>}
             >
-                Submit
+                Add Task
             </Button>
 
         </Container>
