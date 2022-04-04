@@ -4,6 +4,11 @@ import {Container} from "@mui/material";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import TextField from '@mui/material/TextField';
 import {makeStyles} from '@mui/styles';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormLabel from '@mui/material/FormLabel';
+import FormControl from '@mui/material/FormControl';
 
 const useStyles = makeStyles({
     field: {
@@ -19,7 +24,8 @@ function Create(props) {
     const classes = useStyles(props);
     const [formData, setFormData] = useState({
         title: "",
-        details: ""
+        details: "",
+        category: "ToDo"
     });
 
     const [error, setError] = useState({
@@ -39,15 +45,18 @@ function Create(props) {
         setError({
             title: {
                 val: !formData.title,
-                text: !formData.title?'Please fill this field':''
+                text: !formData.title ? 'Please fill this field' : ''
             },
             details: {
-                val:!formData.details,
-                text:!formData.details?'Please fill this field':''
+                val: !formData.details,
+                text: !formData.details ? 'Please fill this field' : ''
             }
         })
+        if (!formData.title || !formData.details) {
+            return
+        }
 
-        console.log(error)
+        console.log(formData)
 
     }
 
@@ -92,6 +101,20 @@ function Create(props) {
                     error={error.details.val}
                     helperText={error.details.text}
                 />
+                <FormControl className={classes.field}>
+                    <FormLabel>Note Category</FormLabel>
+                    <RadioGroup
+                        value={formData.category}
+                        onChange={change}
+                        name={'category'}
+                    >
+                        <FormControlLabel control={<Radio/>} label={'To Do'} value={'ToDo'}/>
+                        <FormControlLabel control={<Radio/>} label={'Reminder'} value={'Reminder'}/>
+                        <FormControlLabel control={<Radio/>} label={'Work'} value={'Work'}/>
+                        <FormControlLabel control={<Radio/>} label={'Other'} value={'Other'}/>
+                    </RadioGroup>
+                </FormControl>
+                <br/>
                 <Button
                     onClick={submit}
                     type={'submit'}
