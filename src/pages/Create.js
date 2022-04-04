@@ -9,6 +9,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 import FormControl from '@mui/material/FormControl';
+import {useNavigate} from "react-router-dom";
 
 const useStyles = makeStyles({
     field: {
@@ -22,6 +23,7 @@ const useStyles = makeStyles({
 function Create(props) {
 
     const classes = useStyles(props);
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         title: "",
         details: "",
@@ -40,7 +42,7 @@ function Create(props) {
     });
 
 
-    const submit = (e) => {
+    const submit = async (e) => {
         e.preventDefault();
         setError({
             title: {
@@ -56,7 +58,13 @@ function Create(props) {
             return
         }
 
-        console.log(formData)
+        await fetch('http://localhost:5000/tasks', {
+            method: "POST",
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify(formData)
+        })
+
+        navigate("/")
 
     }
 
