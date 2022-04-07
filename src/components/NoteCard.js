@@ -13,8 +13,16 @@ function NoteCard(props) {
             <CardHeader
                 title={props.note.title}
                 action={
-                    <IconButton onClick={() => props.onDelete(props.note.id)} >
-                        <DeleteOutline/>
+                    <IconButton onClick={() => props.onDelete(props.note.id)}>
+                        <DeleteOutline
+                            style={
+                                {
+                                    color: 'white',
+                                    background: 'red',
+                                    padding: '0.25rem',
+                                    borderRadius: '2rem'
+                                }
+                            }/>
                     </IconButton>
                 }
                 subheader={props.note.category}
