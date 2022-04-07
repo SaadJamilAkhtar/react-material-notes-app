@@ -15,9 +15,12 @@ const useStyles = makeStyles({
     field: {
         "&&": {
             marginTop: 20,
-            marginBottom: 20
+            marginBottom: 20,
         }
     },
+    text: {
+        background: 'white',
+    }
 });
 
 function Create(props) {
@@ -87,7 +90,7 @@ function Create(props) {
             </Typography>
             <form onSubmit={submit}>
                 <TextField
-                    className={classes.field}
+                    className={`${classes.field} ${classes.text}`}
                     label={"Note Title"}
                     name={'title'}
                     value={formData.title}
@@ -98,7 +101,7 @@ function Create(props) {
                     helperText={error.title.text}
                 />
                 <TextField
-                    className={classes.field}
+                    className={`${classes.field} ${classes.text}`}
                     label={"Details"}
                     name={'details'}
                     value={formData.details}

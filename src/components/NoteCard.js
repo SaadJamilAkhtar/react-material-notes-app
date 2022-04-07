@@ -3,6 +3,7 @@ import {Card, IconButton, Typography} from "@mui/material";
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import {DeleteOutline} from "@mui/icons-material";
+import CloseIcon from '@mui/icons-material/Close';
 
 
 function NoteCard(props) {
@@ -14,7 +15,7 @@ function NoteCard(props) {
                 title={props.note.title}
                 action={
                     <IconButton onClick={() => props.onDelete(props.note.id)}>
-                        <DeleteOutline
+                        <CloseIcon
                             style={
                                 {
                                     color: 'white',
