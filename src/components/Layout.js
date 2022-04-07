@@ -78,11 +78,12 @@ function Layout({children}) {
                             }}
                             style={location.pathname === item.path ? {
                                 background: '#D500F9',
-                                color: "white"
+                                color: "white",
+                                borderRadius: '1rem',
                             } : null}
                         >
 
-                            <ListItemIcon>{location.pathname === item.path ? item.iconWhite: item.icon}</ListItemIcon>
+                            <ListItemIcon>{location.pathname === item.path ? item.iconWhite : item.icon}</ListItemIcon>
                             <ListItemText>{item.text}</ListItemText>
 
                         </ListItem>
