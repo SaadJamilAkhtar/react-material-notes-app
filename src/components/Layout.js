@@ -12,6 +12,7 @@ import {useLocation} from "react-router-dom";
 import {AppBar} from "@mui/material";
 import {Toolbar} from "@mui/material";
 import {format} from "date-fns";
+import {Avatar} from "@mui/material";
 
 const drawerWidth = 240;
 
@@ -44,6 +45,9 @@ const useStyle = makeStyles((theme) => {
         toolbar: theme.mixins.toolbar,
         date: {
             flexGrow: 1
+        },
+        avatar: {
+            marginLeft: theme.spacing(2)
         }
     }
 });
@@ -74,6 +78,7 @@ function Layout({children}) {
                 <Toolbar>
                     <Typography variant={'p1'} className={classes.date}>{format(new Date(), 'do MMMM Y')}</Typography>
                     <Typography variant={'p1'}>Mario</Typography>
+                    <Avatar src={'./avatar.png'} className={classes.avatar}/>
                 </Toolbar>
             </AppBar>
             <Drawer
