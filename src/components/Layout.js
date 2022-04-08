@@ -20,8 +20,8 @@ const useStyle = makeStyles((theme) => {
         page: {
             background: '#f9f9f9',
             width: '100%',
-            paddingTop: theme.spacing(3),
-            height: '92vh'
+            padding: theme.spacing(3),
+            minHeight: '92vh'
         },
         drawer: {
             width: drawerWidth,
