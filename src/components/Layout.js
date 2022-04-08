@@ -17,8 +17,8 @@ const useStyle = makeStyles({
     page: {
         background: '#f9f9f9',
         width: '100%',
-        paddingTop: '2rem',
-        height: '100vh'
+        paddingTop: '8vh',
+        height: '92vh'
     },
     drawer: {
         width: drawerWidth,
