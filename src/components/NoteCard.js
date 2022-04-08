@@ -39,7 +39,7 @@ function NoteCard(props) {
     const classes = useStyle(props.note);
 
     return (
-        <Card elevation={2} className={classes.dynamic}>
+        <Card elevation={2}>
             <CardHeader
                 avatar={<Avatar className={classes.avatar}>
                     {props.note.category[0].toUpperCase()}
