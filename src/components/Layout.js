@@ -8,31 +8,43 @@ import {ListItemText} from "@mui/material";
 import {ListItemIcon} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import {AddCircleOutline, SubjectOutlined} from "@mui/icons-material";
-import {purple} from '@mui/material/colors'
 import {useLocation} from "react-router-dom";
+import {AppBar} from "@mui/material";
+import {Toolbar} from "@mui/material";
+import {format} from "date-fns";
 
 const drawerWidth = 240;
 
-const useStyle = makeStyles({
-    page: {
-        background: '#f9f9f9',
-        width: '100%',
-        paddingTop: '8vh',
-        height: '92vh'
-    },
-    drawer: {
-        width: drawerWidth,
+const useStyle = makeStyles((theme) => {
+    return {
+        page: {
+            background: '#f9f9f9',
+            width: '100%',
+            paddingTop: theme.spacing(3),
+            height: '92vh'
+        },
+        drawer: {
+            width: drawerWidth,
 
-    },
-    drawerPaper: {
-        width: drawerWidth
-    },
-    root: {
-        display: "flex"
-    },
-    drawerTitle: {
-        paddingTop: '2rem',
-        paddingBottom: '2rem'
+        },
+        drawerPaper: {
+            width: drawerWidth
+        },
+        root: {
+            display: "flex"
+        },
+        drawerTitle: {
+            padding: theme.spacing(2)
+        },
+        appbar: {
+            '&&': {
+                width: `calc(100% - ${drawerWidth}px)`,
+            }
+        },
+        toolbar: theme.mixins.toolbar,
+        date: {
+            flexGrow: 1
+        }
     }
 });
 
@@ -58,6 +70,12 @@ function Layout({children}) {
 
     return (
         <div className={classes.root}>
+            <AppBar className={classes.appbar} color={'grey'} elevation={0}>
+                <Toolbar>
+                    <Typography variant={'p1'} className={classes.date}>{format(new Date(), 'do MMMM Y')}</Typography>
+                    <Typography variant={'p1'}>Mario</Typography>
+                </Toolbar>
+            </AppBar>
             <Drawer
                 className={classes.drawer}
                 variant={'permanent'}
@@ -94,6 +112,7 @@ function Layout({children}) {
 
             </Drawer>
             <div className={classes.page}>
+                <div className={classes.toolbar}></div>
                 {children}
             </div>
         </div>
