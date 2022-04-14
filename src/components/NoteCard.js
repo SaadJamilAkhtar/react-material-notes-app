@@ -7,6 +7,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import {makeStyles} from "@mui/styles";
 import {Avatar} from "@mui/material";
 import {blue, green, pink, yellow} from "@mui/material/colors";
+import {motion} from "framer-motion";
 
 const useStyle = makeStyles({
     dynamic: {
@@ -39,31 +40,31 @@ function NoteCard(props) {
     const classes = useStyle(props.note);
 
     return (
-        <Card elevation={2}>
-            <CardHeader
-                avatar={<Avatar className={classes.avatar}>
-                    {props.note.category[0].toUpperCase()}
-                </Avatar>}
-                title={props.note.title}
-                action={
-                    <IconButton onClick={() => props.onDelete(props.note.id)}>
-                        <CloseIcon
-                            style={
-                                {
-                                    color: 'white',
-                                    background: 'red',
-                                    padding: '0.25rem',
-                                    borderRadius: '2rem'
-                                }
-                            }/>
-                    </IconButton>
-                }
-                subheader={props.note.category}
-            />
-            <CardContent>
-                <Typography variant={"body2"} color={"textSecondary"}>{props.note.details}</Typography>
-            </CardContent>
-        </Card>
+            <Card elevation={2}>
+                <CardHeader
+                    avatar={<Avatar className={classes.avatar}>
+                        {props.note.category[0].toUpperCase()}
+                    </Avatar>}
+                    title={props.note.title}
+                    action={
+                        <IconButton onClick={() => props.onDelete(props.note.id)}>
+                            <CloseIcon
+                                style={
+                                    {
+                                        color: 'white',
+                                        background: 'red',
+                                        padding: '0.25rem',
+                                        borderRadius: '2rem'
+                                    }
+                                }/>
+                        </IconButton>
+                    }
+                    subheader={props.note.category}
+                />
+                <CardContent>
+                    <Typography variant={"body2"} color={"textSecondary"}>{props.note.details}</Typography>
+                </CardContent>
+            </Card>
     );
 }
 
